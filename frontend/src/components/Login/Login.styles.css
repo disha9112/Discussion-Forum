@@ -1,0 +1,38 @@
+.login-body {
+  text-align: center;
+  border-radius: 30px;
+  margin: 15px 15px;
+  padding: 20px;
+  width: 50%;
+}
+
+.login-body form {
+  display: grid;
+  justify-items: center;
+}
+
+.login-body input,
+.login-body button {
+  margin: 15px 0px;
+  width: 75%;
+  padding: 10px;
+  font-size: 1.1em;
+  border: 1px solid #dddddd;
+}
+
+.login-body button {
+  cursor: pointer;
+  border: none;
+  background-color: #f5be01;
+}
+
+.login-body input:focus,
+.login-body button:focus {
+  outline: none;
+}
+
+.login-title {
+  font-size: 1.5em;
+  font-weight: 900;
+  margin-bottom: 15px;
+}

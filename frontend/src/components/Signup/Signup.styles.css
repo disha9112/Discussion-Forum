@@ -1,0 +1,39 @@
+.signup-body {
+  text-align: center;
+  border-radius: 30px;
+  margin: 15px 15px;
+  padding: 20px;
+  width: 50%;
+}
+
+.signup-body form {
+  display: grid;
+  justify-items: center;
+}
+
+.signup-body input,
+.signup-body button {
+  margin: 15px 0px;
+  width: 75%;
+  padding: 10px;
+  font-size: 1.1em;
+  border: 1px solid #dddddd;
+}
+
+.signup-body button {
+  cursor: pointer;
+  border: none;
+  background-color: #f5be01;
+  font-weight: 900;
+}
+
+.signup-body input:focus,
+.signup-body button:focus {
+  outline: none;
+}
+
+.signup-title {
+  font-size: 1.5em;
+  font-weight: 900;
+  margin-bottom: 15px;
+}
