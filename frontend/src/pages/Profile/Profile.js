@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import NavCard from "../../components/NavCard/NavCard.component";
+import ask from "../../assets/ask.png";
+import trending from "../../assets/trending.png";
 import "./Profile.css";
 
 function Profile() {
@@ -8,24 +10,16 @@ function Profile() {
 
   let navCardInfo = [
     {
+      image: ask,
       url: "/ask",
       title: "ASK",
       description: "Fire your doubts and start a discussion.",
     },
     {
+      image: trending,
       url: "/trending",
       title: "TRENDING",
       description: "Check out questions trending on the forum.",
-    },
-    {
-      url: "/questions",
-      title: "YOUR QUESTIONS",
-      description: "Find your past questions.",
-    },
-    {
-      url: "/replies",
-      title: "YOUR REPLIES",
-      description: "See your replies on past questions.",
     },
   ];
 
@@ -36,6 +30,7 @@ function Profile() {
         url={navCard.url}
         title={navCard.title}
         description={navCard.description}
+        image={navCard.image}
       />
     );
   });

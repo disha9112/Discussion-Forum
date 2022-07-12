@@ -1,0 +1,34 @@
+.question-body {
+  margin: 20px;
+  padding: 20px;
+}
+
+.question-title {
+  font-size: 3em;
+  font-weight: 900;
+}
+
+.question-author {
+  font-size: 2em;
+}
+
+.question-author span {
+  font-weight: 900;
+}
+
+.question-reply {
+  font-size: 1.5em;
+  margin-top: 100px;
+}
+
+.question-body textarea {
+  margin-top: 10px;
+  width: 100%;
+  padding: 10px;
+  font-size: 1.2em;
+  border: 1px solid #dddddd;
+}
+
+.question-body textarea:focus {
+  outline: none;
+}

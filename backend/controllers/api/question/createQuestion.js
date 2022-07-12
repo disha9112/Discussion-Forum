@@ -8,6 +8,7 @@ exports.createQuestion = async (req, res) => {
   );
 
   const email = userEmail.email;
+  const name = userEmail.name;
   const title = req.body.title;
 
   try {
@@ -17,7 +18,7 @@ exports.createQuestion = async (req, res) => {
         message: "Question field cannot be empty",
       });
     } else {
-      const newQuestion = new Question({ email, title });
+      const newQuestion = new Question({ email, name, title });
 
       try {
         await newQuestion.save();

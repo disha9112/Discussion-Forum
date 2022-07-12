@@ -1,0 +1,8 @@
+.trending-body {
+  padding: 20px;
+}
+
+.trending-loading-spinner {
+  display: flex;
+  justify-content: center;
+}

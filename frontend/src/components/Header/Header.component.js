@@ -25,12 +25,6 @@ function Header({ toggleHeader, setToggleHeader }) {
             <Link to="/trending" className="link">
               <li>Trending</li>
             </Link>
-            <Link to="/questions" className="link">
-              <li>Questions</li>
-            </Link>
-            <Link to="/replies" className="link">
-              <li>Replies</li>
-            </Link>
             <Link onClick={() => handleLogOutClick()} className="link" to="/">
               <li>Log Out</li>
             </Link>

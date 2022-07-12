@@ -1,0 +1,34 @@
+.questionblock-body {
+  margin: 15px 0px;
+  padding: 25px;
+  background: #e6e75f;
+}
+
+.questionblock-content {
+  display: block;
+}
+
+.questionblock-title {
+  font-size: 1.3em;
+  font-weight: 900;
+}
+
+.questionblock-title:hover {
+  cursor: pointer;
+  color: white;
+}
+
+.questionblock-body span {
+  font-weight: 900;
+}
+
+.questionblock-footer {
+  display: flex;
+  justify-content: space-between;
+}
+
+@media (max-width: 392px) {
+  .questionblock-footer {
+    display: block;
+  }
+}
