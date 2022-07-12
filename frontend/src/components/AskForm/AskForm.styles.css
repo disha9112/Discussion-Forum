@@ -1,0 +1,32 @@
+.ask-form-body {
+  text-align: center;
+  border-radius: 30px;
+  margin: 15px 15px;
+  padding: 20px;
+}
+
+.ask-form-body form {
+  display: grid;
+  justify-items: center;
+}
+
+.ask-form-body textarea,
+.ask-form-body button {
+  margin: 15px 0px;
+  width: 75%;
+  padding: 10px;
+  font-size: 1.1em;
+  border: 1px solid #dddddd;
+}
+
+.ask-form-body button {
+  cursor: pointer;
+  border: none;
+  background-color: #f5be01;
+  font-weight: 900;
+}
+
+.ask-form-body textarea:focus,
+.ask-form-body button:focus {
+  outline: none;
+}

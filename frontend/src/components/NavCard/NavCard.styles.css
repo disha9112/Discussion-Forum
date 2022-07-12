@@ -1,0 +1,27 @@
+.card-body {
+  text-align: center;
+  background-color: #e6e75f;
+  border-radius: 30px;
+  margin: 20px;
+  padding: 30px;
+  width: auto;
+}
+
+.card-body:hover {
+  cursor: pointer;
+  transform: scale(1.03);
+  transition: 0.2s;
+}
+
+.card-title {
+  font-size: 2em;
+  font-weight: 900;
+}
+
+.card-title:hover {
+  color: white;
+}
+
+.card-description {
+  font-size: 1.5em;
+}

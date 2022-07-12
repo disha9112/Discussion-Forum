@@ -10,7 +10,11 @@ body {
 
 .link {
   margin: auto 0;
+}
+
+a {
   text-decoration: none;
+  color: black;
 }
 
 code {

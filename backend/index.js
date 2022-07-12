@@ -3,7 +3,8 @@ const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
 
-const auth = require("./routes/auth");
+const auth = require("./routes/auth/auth");
+const question = require("./routes/api/question");
 
 const app = express();
 
@@ -20,6 +21,7 @@ app.use(express.json());
 app.use(cors());
 
 app.use("/auth", auth);
+app.use("/question", question);
 
 app.get("/", (req, res) => {
   res.send("Server is listening for requests");

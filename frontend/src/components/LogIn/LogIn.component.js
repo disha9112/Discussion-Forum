@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Login.styles.css";
+import "./LogIn.styles.css";
 
-function Login() {
+function LogIn({ setToggleHeader }) {
   const navigate = useNavigate();
 
   const [email, setEmail] = useState("");
@@ -41,7 +41,8 @@ function Login() {
         if (data.token) {
           localStorage.setItem("token", data.token);
           alert("Log in successful");
-          // navigate("/profile");
+          setToggleHeader(true);
+          navigate("/profile");
         } else {
           alert("Please check the data entered");
         }
@@ -73,4 +74,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default LogIn;

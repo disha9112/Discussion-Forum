@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./Signup.styles.css";
+import "./SignUp.styles.css";
 
-function Signup() {
+function SignUp({ setToggleHeader }) {
   const navigate = useNavigate();
 
   var mailFormat =
@@ -61,7 +61,8 @@ function Signup() {
         if (data.token) {
           localStorage.setItem("token", data.token);
           alert("Sign up successful");
-          // navigate("/profile");
+          setToggleHeader(true);
+          navigate("/profile");
         } else {
           alert("Please check the data entered");
         }
@@ -107,4 +108,4 @@ function Signup() {
   );
 }
 
-export default Signup;
+export default SignUp;

@@ -1,13 +1,22 @@
-import React from "react";
-import Signup from "../../components/Signup/Signup.component";
-import Login from "../../components/Login/Login.component";
+import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
+import SignUp from "../../components/SignUp/SignUp.component";
+import LogIn from "../../components/LogIn/LogIn.component";
 import "./Home.css";
 
-function Home() {
+function Home({ toggleHeader, setToggleHeader }) {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      navigate("/profile");
+    }
+  });
+
   return (
     <div className="auth-forms">
-      <Signup />
-      <Login />
+      <SignUp setToggleHeader={setToggleHeader} />
+      <LogIn setToggleHeader={setToggleHeader} />
     </div>
   );
 }
