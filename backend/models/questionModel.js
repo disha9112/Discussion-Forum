@@ -18,6 +18,9 @@ const question = new Schema({
     type: Date,
     default: new Date(),
   },
+  viewCount: {
+    type: Number,
+  },
 });
 
 const Question = mongoose.model("question", question);

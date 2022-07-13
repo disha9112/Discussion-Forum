@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import { Oval } from "react-loader-spinner";
 import QuestionsList from "../../components/QuestionsList/QuestionsList.component";
 import "./Trending.css";
+import SearchBar from "../../components/SearchBar/SearchBar.component";
 
 function Trending() {
   const navigate = useNavigate();
@@ -34,6 +35,20 @@ function Trending() {
     }
   }, []);
 
+  function compare(a, b) {
+    if (a.viewCount < b.viewCount) {
+      return 1;
+    }
+
+    if (a.viewCount > b.viewCount) {
+      return -1;
+    }
+
+    return 0;
+  }
+
+  questions.sort(compare);
+
   let retrievedQuestions = questions.map((question) => {
     return question;
   });
@@ -54,6 +69,7 @@ function Trending() {
   } else {
     return (
       <div className="trending-body">
+        <SearchBar />
         <QuestionsList questions={retrievedQuestions} />
       </div>
     );

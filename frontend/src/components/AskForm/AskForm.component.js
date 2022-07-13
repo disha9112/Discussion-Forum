@@ -1,7 +1,10 @@
 import React, { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./AskForm.styles.css";
 
 function AskForm() {
+  const navigate = useNavigate();
+
   const [question, setQuestion] = useState("");
 
   const handleQuestionChange = (event) => {
@@ -21,6 +24,7 @@ function AskForm() {
         },
         body: JSON.stringify({
           title: question,
+          viewCount: 0,
         }),
       }
     );
@@ -30,7 +34,7 @@ function AskForm() {
     if (data.status === true) {
       alert("Question added successfully");
       setQuestion("");
-      // navigate("/trending");
+      navigate("/trending");
     } else {
       alert("There was an error, please try again");
     }

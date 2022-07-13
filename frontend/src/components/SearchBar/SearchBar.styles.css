@@ -1,0 +1,36 @@
+.search-bar-body {
+  text-align: center;
+  border-radius: 30px;
+  padding: 20px;
+}
+
+.search-bar-title {
+  font-size: 2em;
+  font-weight: 900;
+}
+
+.search-bar-body form {
+  display: grid;
+  justify-items: center;
+}
+
+.search-bar-body input,
+.search-bar-body button {
+  margin: 15px 0px;
+  width: 75%;
+  padding: 10px;
+  font-size: 1.1em;
+  border: 1px solid #dddddd;
+}
+
+.search-bar-body button {
+  cursor: pointer;
+  border: none;
+  background-color: #f5be01;
+  font-weight: 900;
+}
+
+.search-bar-body input:focus,
+.search-bar-body button:focus {
+  outline: none;
+}

@@ -3,11 +3,33 @@ import moment from "moment";
 import "./QuestionBlock.styles.css";
 import { Link } from "react-router-dom";
 
-function QuestionBlock({ id, name, date, title }) {
+function QuestionBlock({ id, name, date, title, viewCount }) {
+  async function handleUpdateViewCount(id) {
+    const response = await fetch(
+      `http://localhost:8000/question/viewCountQuestion/${id}`,
+      {
+        method: "PATCH",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          viewCount: viewCount + 1,
+        }),
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.status === true) {
+      console.log("updated");
+    }
+  }
+
   return (
     <div className="questionblock-body">
       <div className="questionblock-content">
-        <Link to={`/question/${id}`}>
+        <Link onClick={() => handleUpdateViewCount(id)} to={`/question/${id}`}>
           <div className="questionblock-title">{title}</div>
         </Link>
         <div className="questionblock-author">

@@ -13,6 +13,7 @@ function QuestionsList({ questions }) {
             name={question.name}
             date={question.date}
             title={question.title}
+            viewCount={question.viewCount}
           />
         );
       })}
