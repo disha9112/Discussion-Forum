@@ -75,7 +75,7 @@ function Trending() {
     return question;
   });
 
-  if (!retrievedQuestions.length) {
+  if (!retrievedQuestions.length && !query) {
     return (
       <div className="trending-body">
         <div className="trending-loading-spinner">
