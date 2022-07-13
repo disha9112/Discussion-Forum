@@ -13,7 +13,7 @@ exports.createQuestion = async (req, res) => {
   const viewCount = req.body.viewCount;
 
   try {
-    if (title.length === 0) {
+    if (!title) {
       res.json({
         status: false,
         message: "Question field cannot be empty",

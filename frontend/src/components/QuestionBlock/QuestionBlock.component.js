@@ -33,9 +33,6 @@ function QuestionBlock({ id, name, date, title, viewCount }) {
           <div className="questionblock-date">
             Asked <span>{moment(date).fromNow()}</span>
           </div>
-          {/* <div className="questionblock-replies">
-            Replies <span>(x)</span>
-          </div> */}
         </div>
       </div>
     </div>
