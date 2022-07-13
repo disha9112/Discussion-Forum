@@ -22,10 +22,6 @@ function LogIn({ setToggleHeader }) {
 
     if (!validator.isEmail(email)) {
       alert("Invalid email address");
-    } else if (!validator.isStrongPassword(password)) {
-      alert(
-        "Password is weak, it must have: min 8 characters, min 1 uppercase character, min 1 number, min 1 symbol"
-      );
     } else {
       const response = await fetch("http://localhost:8000/auth/login", {
         method: "POST",
@@ -40,12 +36,12 @@ function LogIn({ setToggleHeader }) {
 
       const data = await response.json();
 
-      if (!data.userExists) {
+      if (data.userExists === false) {
         alert(
           "Given credentials don't exist in database, please try signing up"
         );
       } else {
-        if (!data.isPasswordValid) {
+        if (data.isPasswordValid === false) {
           alert("Incorrect password, please try again");
         } else {
           if (data.token) {

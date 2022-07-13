@@ -12,12 +12,6 @@ exports.login = async (req, res) => {
       status: false,
       message: "All fields are mandatory",
     });
-  } else if (!validator.isStrongPassword(password)) {
-    res.json({
-      status: false,
-      message:
-        "Password is weak, it must have: min 8 characters, min 1 uppercase character, min 1 number, min 1 symbol",
-    });
   } else if (!validator.isEmail(email)) {
     res.json({
       status: false,
