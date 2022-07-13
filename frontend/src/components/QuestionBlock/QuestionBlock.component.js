@@ -18,12 +18,6 @@ function QuestionBlock({ id, name, date, title, viewCount }) {
         }),
       }
     );
-
-    const data = await response.json();
-
-    if (data.status === true) {
-      console.log("updated");
-    }
   }
 
   return (

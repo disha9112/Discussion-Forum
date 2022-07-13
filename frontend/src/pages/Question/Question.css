@@ -15,20 +15,3 @@
 .question-author span {
   font-weight: 900;
 }
-
-.question-reply {
-  font-size: 1.5em;
-  margin-top: 100px;
-}
-
-.question-body textarea {
-  margin-top: 10px;
-  width: 100%;
-  padding: 10px;
-  font-size: 1.2em;
-  border: 1px solid #dddddd;
-}
-
-.question-body textarea:focus {
-  outline: none;
-}

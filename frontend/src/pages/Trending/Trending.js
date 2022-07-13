@@ -9,6 +9,7 @@ function Trending() {
   const navigate = useNavigate();
 
   const [questions, setQuestions] = useState([]);
+  const [query, setQuery] = useState("");
 
   async function fetchQuestions() {
     const response = await fetch(
@@ -27,13 +28,34 @@ function Trending() {
     }
   }
 
+  async function filterQuestions(query) {
+    const response = await fetch(
+      `http://localhost:8000/question/filterQuestions/${query}`,
+      {
+        method: "GET",
+      }
+    );
+
+    const data = await response.json();
+
+    if (data.status === true) {
+      setQuestions(data.questions);
+    } else {
+      alert("Error retrieving questions");
+    }
+  }
+
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       navigate("/");
     } else {
-      fetchQuestions();
+      if (query) {
+        filterQuestions(query);
+      } else {
+        fetchQuestions();
+      }
     }
-  }, []);
+  }, [query]);
 
   function compare(a, b) {
     if (a.viewCount < b.viewCount) {
@@ -69,7 +91,7 @@ function Trending() {
   } else {
     return (
       <div className="trending-body">
-        <SearchBar />
+        <SearchBar query={query} setQuery={setQuery} />
         <QuestionsList questions={retrievedQuestions} />
       </div>
     );

@@ -3,3 +3,10 @@
   display: flex;
   justify-content: space-between;
 }
+
+@media (max-width: 700px) {
+  .auth-forms {
+    margin: auto;
+    display: block;
+  }
+}

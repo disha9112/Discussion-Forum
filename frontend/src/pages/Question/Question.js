@@ -41,8 +41,6 @@ function Question() {
       <div className="question-author">
         Posted by <span>{name}</span>, <span>{moment(date).fromNow()}</span>
       </div>
-      <div className="question-reply">Add a reply</div>
-      <textarea type="text"></textarea>
     </div>
   );
 }

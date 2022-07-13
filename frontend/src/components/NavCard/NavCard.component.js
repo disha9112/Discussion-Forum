@@ -5,7 +5,7 @@ import "./NavCard.styles.css";
 function NavCard({ url, title, description, image }) {
   return (
     <div className="card-body">
-      <img src={image} width={450} />
+      <img src={image} width={400} />
       <Link to={url}>
         <div className="card-title">{title}</div>
       </Link>

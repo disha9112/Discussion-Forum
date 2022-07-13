@@ -2,7 +2,7 @@
   text-align: center;
   background-color: #e6e75f;
   border-radius: 30px;
-  margin: 20px;
+  margin: 20px 20px;
   padding: 30px;
   width: auto;
 }
@@ -24,4 +24,16 @@
 
 .card-description {
   font-size: 1.5em;
+}
+
+@media (max-width: 524px) {
+  .card-body img {
+    width: 270px;
+  }
+}
+
+@media (max-width: 388px) {
+  .card-body img {
+    width: 180px;
+  }
 }
