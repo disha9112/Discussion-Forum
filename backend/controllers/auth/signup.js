@@ -1,5 +1,6 @@
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const validator = require("validator");
 const User = require("../../models/userModel");
 
 exports.signup = async (req, res) => {
@@ -7,16 +8,19 @@ exports.signup = async (req, res) => {
   const email = req.body.email;
   const password = req.body.password;
 
-  var mailFormat =
-    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
-
   try {
-    if (password.length <= 5) {
+    if (!name || !email || !password) {
       res.json({
         status: false,
-        message: "Password is weak, enter 5 or more characters",
+        message: "All fields are mandatory",
       });
-    } else if (!email.match(mailFormat)) {
+    } else if (!validator.isStrongPassword(password)) {
+      res.json({
+        status: false,
+        message:
+          "Password is weak, it must have: min 8 characters, min 1 uppercase character, min 1 number, min 1 symbol",
+      });
+    } else if (!validator.isEmail(email)) {
       res.json({
         status: false,
         message: "Invalid email address",

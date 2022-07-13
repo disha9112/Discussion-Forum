@@ -1,12 +1,10 @@
 import React, { useState } from "react";
+import validator from "validator";
 import { useNavigate } from "react-router-dom";
 import "./SignUp.styles.css";
 
 function SignUp({ setToggleHeader }) {
   const navigate = useNavigate();
-
-  var mailFormat =
-    /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -32,12 +30,12 @@ function SignUp({ setToggleHeader }) {
   async function handleSignUpSubmit(event) {
     event.preventDefault();
 
-    if (password !== confPassword) {
-      alert("Passwords don't match, please try again");
-    } else if (!email.match(mailFormat)) {
-      alert("Enter a valid email address");
-    } else if (password.length <= 5) {
-      alert("Enter a strong password with more than 5 characters");
+    if (!validator.isEmail(email)) {
+      alert("Invalid email address");
+    } else if (!validator.isStrongPassword(password)) {
+      alert(
+        "Password is weak, it must have: min 8 characters, min 1 uppercase character, min 1 number, min 1 symbol"
+      );
     } else {
       const response = await fetch("http://localhost:8000/auth/signup", {
         method: "POST",
@@ -64,7 +62,7 @@ function SignUp({ setToggleHeader }) {
           setToggleHeader(true);
           navigate("/profile");
         } else {
-          alert("Please check the data entered");
+          alert("There was an error, please try again");
         }
       }
     }

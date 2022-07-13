@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import validator from "validator";
 import { useNavigate } from "react-router-dom";
 import "./LogIn.styles.css";
 
@@ -19,32 +20,42 @@ function LogIn({ setToggleHeader }) {
   async function handleLogInSubmit(event) {
     event.preventDefault();
 
-    const response = await fetch("http://localhost:8000/auth/login", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        email,
-        password,
-      }),
-    });
-
-    const data = await response.json();
-
-    if (data.userExists === false) {
-      alert("Given credentials don't exist in database, please try signing up");
+    if (!validator.isEmail(email)) {
+      alert("Invalid email address");
+    } else if (!validator.isStrongPassword(password)) {
+      alert(
+        "Password is weak, it must have: min 8 characters, min 1 uppercase character, min 1 number, min 1 symbol"
+      );
     } else {
-      if (!data.isPasswordValid) {
-        alert("Incorrect password, please try again");
+      const response = await fetch("http://localhost:8000/auth/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
+
+      const data = await response.json();
+
+      if (!data.userExists) {
+        alert(
+          "Given credentials don't exist in database, please try signing up"
+        );
       } else {
-        if (data.token) {
-          localStorage.setItem("token", data.token);
-          alert("Log in successful");
-          setToggleHeader(true);
-          navigate("/profile");
+        if (!data.isPasswordValid) {
+          alert("Incorrect password, please try again");
         } else {
-          alert("Please check the data entered");
+          if (data.token) {
+            localStorage.setItem("token", data.token);
+            alert("Log in successful");
+            setToggleHeader(true);
+            navigate("/profile");
+          } else {
+            alert("There was an error, please try again");
+          }
         }
       }
     }
