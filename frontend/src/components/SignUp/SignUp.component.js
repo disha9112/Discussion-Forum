@@ -36,6 +36,8 @@ function SignUp({ setToggleHeader }) {
       alert(
         "Password is weak, it must have: min 8 characters, min 1 uppercase character, min 1 number, min 1 symbol"
       );
+    } else if (password !== confPassword) {
+      alert("Passwords don't match, please try again");
     } else {
       const response = await fetch(
         "https://discussion-forum-live.herokuapp.com/auth/signup",
