@@ -13,7 +13,7 @@ function Trending() {
 
   async function fetchQuestions() {
     const response = await fetch(
-      "http://localhost:8000/question/getQuestions",
+      "https://discussion-forum-live.herokuapp.com/question/getQuestions",
       {
         method: "GET",
       }
@@ -30,7 +30,7 @@ function Trending() {
 
   async function filterQuestions(query) {
     const response = await fetch(
-      `http://localhost:8000/question/filterQuestions/${query}`,
+      `https://discussion-forum-live.herokuapp.com/question/filterQuestions/${query}`,
       {
         method: "GET",
       }

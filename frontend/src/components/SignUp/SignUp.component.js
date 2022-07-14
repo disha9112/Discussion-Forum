@@ -37,17 +37,20 @@ function SignUp({ setToggleHeader }) {
         "Password is weak, it must have: min 8 characters, min 1 uppercase character, min 1 number, min 1 symbol"
       );
     } else {
-      const response = await fetch("http://localhost:8000/auth/signup", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name,
-          email,
-          password,
-        }),
-      });
+      const response = await fetch(
+        "https://discussion-forum-live.herokuapp.com/auth/signup",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            name,
+            email,
+            password,
+          }),
+        }
+      );
 
       const data = await response.json();
 

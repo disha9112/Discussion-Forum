@@ -12,7 +12,7 @@ function Question() {
 
   async function fetchQuestion(questionId) {
     const response = await fetch(
-      `http://localhost:8000/question/getQuestion/${questionId}`,
+      `https://discussion-forum-live.herokuapp.com/question/getQuestion/${questionId}`,
       {
         method: "GET",
       }

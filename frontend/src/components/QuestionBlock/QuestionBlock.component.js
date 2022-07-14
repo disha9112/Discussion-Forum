@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 function QuestionBlock({ id, name, date, title, viewCount }) {
   async function handleUpdateViewCount(id) {
     const response = await fetch(
-      `http://localhost:8000/question/viewCountQuestion/${id}`,
+      `https://discussion-forum-live.herokuapp.com/question/viewCountQuestion/${id}`,
       {
         method: "PATCH",
         headers: {

@@ -4,7 +4,7 @@ import SignUp from "../../components/SignUp/SignUp.component";
 import LogIn from "../../components/LogIn/LogIn.component";
 import "./Home.css";
 
-function Home({ toggleHeader, setToggleHeader }) {
+function Home({ setToggleHeader }) {
   const navigate = useNavigate();
 
   useEffect(() => {

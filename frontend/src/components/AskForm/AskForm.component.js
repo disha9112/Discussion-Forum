@@ -15,7 +15,7 @@ function AskForm() {
     event.preventDefault();
 
     const response = await fetch(
-      "http://localhost:8000/question/createQuestion",
+      "https://discussion-forum-live.herokuapp.com/question/createQuestion",
       {
         method: "POST",
         headers: {
